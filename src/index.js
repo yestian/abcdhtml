@@ -11,7 +11,7 @@ require('./static/css/normalize.css');
 require('./static/css/designer.css');
 
 const store = createStore(reducer, applyMiddleware(thunk));
-
+// console.log(store);
 ReactDOM.render(
     <Provider store={store}>
         <App/>

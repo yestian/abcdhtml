@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 class LeftBotPages extends Component{
     render() {
-        console.log(this.props);
         return (
             <div className="button setting sprite-mid edges active" data-automation-id="left-edges"  onClick={(e)=>this.props.onClick(e)}
             onMouseEnter={(e)=>this.props.onMouseEnter(e)}

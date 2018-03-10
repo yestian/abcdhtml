@@ -24,8 +24,8 @@ class Topbar extends Component{
                 </div>
                <TopbarCenter onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
                <div className="bem-TopBar_Body_Group bem-TopBar_Body_Group-right">
-                   <TopbarUndoRedo/>
-                   <TopbarRightStatus/>
+                   <TopbarUndoRedo  onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
+                   <TopbarRightStatus  onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
                    <TopbarExport onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
                    <TopbarPublish onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
                </div>

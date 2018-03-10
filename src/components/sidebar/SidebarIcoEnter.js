@@ -31,16 +31,37 @@ function SidebarIcoEnter(props){
             }
             let width=ico.width?ico.width:1;
             let viewBox=`0 0 ${width} 26`;
-            return (
-                <div>
-                    <div className="bem-Tooltip" style={{...tooltip}}>
+            //--------------------------------------------------
+            if(ico.dataId==="topbar-undo" || ico.dataId==="topbar-redo"){
+                return (
+                    <div className="bem-GuidanceTooltip" style={{...tooltip}}>
+                        <svg viewBox={viewBox} style={{...svg}}>
+                            <path d={ico.path} clipPath={ico.clipPath} fill="currentColor" style={{...path}}></path>
+                        </svg>
+                        <div className="bem-GuidanceTooltip_Body" style={{...tip}}>{ico.tiptext}</div>
+                    </div>
+                )
+            }else if(ico.dataId==="change-saved"){
+                return (
+                    <div className="bem-Tooltip bem-Tooltip-success" style={{...tooltip}}>
                         <svg viewBox={viewBox} style={{...svg}}>
                             <path d={ico.path} clipPath={ico.clipPath} fill="currentColor" style={{...path}}></path>
                         </svg>
                         <div className="bem-Tooltip_Body" style={{...tip}}>{ico.tiptext}</div>
                     </div>
-                </div>
-            )
+                )
+            }else{
+                return (
+                    <div>
+                        <div className="bem-Tooltip" style={{...tooltip}}>
+                            <svg viewBox={viewBox} style={{...svg}}>
+                                <path d={ico.path} clipPath={ico.clipPath} fill="currentColor" style={{...path}}></path>
+                            </svg>
+                            <div className="bem-Tooltip_Body" style={{...tip}}>{ico.tiptext}</div>
+                        </div>
+                    </div>
+                )
+            }
         }else{
             return '';
         }

@@ -1,3 +1,4 @@
+import $ from 'jquery';
 let ICO_CLICK='ICO_CLICK';
 let ICO_MOUSE_ENTER='ICO_MOUSE_ENTER';
 let ICO_MOUSE_LEAVE='ICO_MOUSE_LEAVE';
@@ -11,13 +12,13 @@ function icoTipMsg(e){
     let enter=1,
         width=59;
     //------------顶部图标-----------------------
-    let topx=e.target.offsetLeft+e.target.clientWidth/2-width/2+35,//35位左侧工具栏的宽度
+    let topx=$(e.target).offset().left+e.target.clientWidth/2-width/2,//减去弹窗的一半宽度
         topy=42,
         topPath='M0 2a 2 -2 0 0 1 2 -2l20.0078125 0 6 -6 6 6 20.9921875 0a 2 2 0 0 1 2 2v22a -2 2 0 0 1 -2 2h-53a -2 -2 0 0 1 -2 -2z',
         topClipPath='url(#balloon-clip-31260)';
     //------------左侧图标-----------------
     let leftx=42,
-        lefty=e.pageY,
+        lefty=$(e.target).offset().top+$(e.target).height()/2,
         leftPath='M0 2a 2 -2 0 0 1 2 -2h60a 2 2 0 0 1 2 2v22a -2 2 0 0 1 -2 2h-60a -2 -2 0 0 1 -2 -2l0 -5 -6 -6 6 -6 z',
         leftClipPath='url(#balloon-clip-78953)';
     //顶部模式
@@ -91,8 +92,63 @@ function icoTipMsg(e){
     if(id==='left-video'){
         return {tiptext:'视频教程',...leftmode}
     }
+    if(id==='right-sidebar-style'){
+        return {tiptext:'当前样式',...topmode}
+    }
+    if(id==='right-sidebar-settings-tab-link'){
+        return {tiptext:'元素设置',...topmode}
+    }
+    if(id==='right-sidebar-navigator-tab-link'){
+        return {tiptext:'元素导航',...topmode}
+    }
+    if(id==='right-sidebar-allstyles'){
+        return {tiptext:'样式管理',...topmode}
+    }
+    if(id==='right-sidebar-interactions-tab-link'){
+        return {
+                tiptext:'交互效果管理',
+                clipPath:'url(#balloon-clip-63391)',
+                top:topy,
+                left:$(e.target).offset().left+e.target.clientWidth-93,
+                enter:enter,
+                width:93,
+                path:'M0 2a 2 -2 0 0 1 2 -2l68.03125 0 6 -6 6 6 8.96875 0a 2 2 0 0 1 2 2v22a -2 2 0 0 1 -2 2h-89a -2 -2 0 0 1 -2 -2z'
+            }
+    }
+    if(id==='topbar-undo'){
+        return {
+                tiptext:'没有可撤消事件',
+                clipPath:'url(#balloon-clip-10822)',
+                top:topy,
+                left:$(e.target).offset().left+e.target.clientWidth/2-107/2,
+                enter:enter,
+                width:107,
+                path:'M0 2a 2 -2 0 0 1 2 -2l45.3671875 0 6 -6 6 6 45.6328125 0a 2 2 0 0 1 2 2v22a -2 2 0 0 1 -2 2h-103a -2 -2 0 0 1 -2 -2z'
+            }
+    }
+    if(id==='topbar-redo'){
+        return {
+                tiptext:'没有可重做事件',
+                clipPath:'url(#balloon-clip-10822)',
+                top:topy,
+                left:$(e.target).offset().left+e.target.clientWidth/2-107/2,
+                enter:enter,
+                width:107,
+                path:'M0 2a 2 -2 0 0 1 2 -2l45.3671875 0 6 -6 6 6 45.6328125 0a 2 2 0 0 1 2 2v22a -2 2 0 0 1 -2 2h-103a -2 -2 0 0 1 -2 -2z'
+            }
+    }
+    if(id==='change-saved'){
+        return {
+                tiptext:'变动已经保存',
+                clipPath:'url(#balloon-clip-87790)',
+                top:topy,
+                left:$(e.target).offset().left+e.target.clientWidth/2-96/2,
+                enter:enter,
+                width:96,
+                path:'M0 2a 2 -2 0 0 1 2 -2l39.703125 0 6 -6 6 6 40.296875 0a 2 2 0 0 1 2 2v22a -2 2 0 0 1 -2 2h-92a -2 -2 0 0 1 -2 -2z'
+            }
+    }
 }
-
 /**
  * 点击工具栏图标，切换响应的功能
  * @param  {[type]} e [description]
@@ -111,10 +167,13 @@ var timer=null;
  * @return {[type]}   [description]
  */
 export function icoMouseEnter(e){
+    e.preventDefault();
+    e.stopPropagation();
+    let id=e.currentTarget.getAttribute('data-automation-id');
     return function(dispatch){
         let tipmsg=icoTipMsg(e);
         timer=setTimeout(()=>{
-            dispatch({type: ICO_MOUSE_ENTER, ...tipmsg});
+            dispatch({type: ICO_MOUSE_ENTER,dataId:id, ...tipmsg});
         },500);
     }
 }

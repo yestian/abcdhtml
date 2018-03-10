@@ -9,6 +9,7 @@ import reducer from './reducers';
 require('./static/css/style.css');
 require('./static/css/normalize.css');
 require('./static/css/designer.css');
+require('./static/js/elian.js');
 
 const store = createStore(reducer, applyMiddleware(thunk));
 

@@ -1,18 +1,22 @@
 import React,{Component} from 'react';
 import $ from 'jquery';
 import {connect} from 'react-redux';
+import WorkSpace from './workSpace';
 import DesignerReact from './DesignerReact';
 
 class App extends Component{
     render(){
+        //没有模块可以操作的判断，放在app里面
+        //判断眼睛状态，如果激活模式下
+        let eyeStatus=this.props.ico.ico_event.eyeStatus;
+        if(eyeStatus===true){
+            $('html').removeClass('avoid-right-sidebar avoid-left-sidebar avoid-bottom-bar');
+        }else{
+            $('html').addClass('avoid-right-sidebar avoid-left-sidebar avoid-bottom-bar');
+        }
         return (
             <div>
-                <div id="workspace" className="workspace">
-                    <div className="site-canvas">
-                        <div id="tools-flux"></div>
-                        <div id="site-iframe-next-container"></div>
-                    </div>
-                </div>
+                <WorkSpace/>
                 <div id="debug-overlay"></div>
                 <iframe id="responsive-images-iframe" src="/site/empty.html" title="imgFrame"></iframe>
                 <div id="designer-app-react-mount">
@@ -43,8 +47,7 @@ class App extends Component{
 
 $(document).ready(function(){
     var html=$('html');
-    html.addClass('wf-doc');
-    html.addClass('avoid-right-sidebar avoid-left-sidebar wf-proximanova-n6-active wf-proximanova-n4-active wf-proximanova-n3-active wf-active avoid-top-bar avoid-bottom-bar');
+    html.addClass('wf-doc wf-proximanova-n6-active wf-proximanova-n4-active wf-proximanova-n3-active wf-active avoid-right-sidebar avoid-left-sidebar avoid-top-bar avoid-bottom-bar');
     $('#preload-assets').append('<img src="./static/img/example-bg.png"/><img src="./static/img/image-placeholder.png"/><img src="./static/img/placeholder-thumb.png"/>');//预加载图片
 });
 //connect链接

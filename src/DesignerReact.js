@@ -10,6 +10,8 @@ import BottomBar from './components/sidebar/bottombar';
 import ComfirmWrapper from './components/sidebar/comfirmwrapper';
 import Fade from './components/sidebar/fade';
 import NotificationList from './components/sidebar/notificationlist';
+import ReactViewHelperA from './components/sidebar/reactViewHelperA';
+import ReactViewHelperB from './components/sidebar/reactViewHelperB';
 import SidebarIcoEnter from './components/sidebar/SidebarIcoEnter';
 
 class DesignerReact extends Component {
@@ -26,34 +28,25 @@ class DesignerReact extends Component {
             lineHeight: '16px',
             WebkitFontSmoothing:'antialiased'
         }
-        let b={
-            position: 'absolute',
-            pointerEvents: 'none',
-            overflow: 'hidden',
-            left: '35px',
-            top: '35px',
-            width: '1645px',
-            height: '490px'
-        }
         let icoprops=this.props.ico.ico_event;
         return (
             <div>
                 <div>
                     {/* svg图标集合 */}
                   <TopBar/>
-                  <DesignerLogo/>
-                  <LeftBar/>
-                  <RightBar/>
-                  <LeftBarPanel/>
-                  <BottomBar/>
+                  <DesignerLogo icoprops={icoprops}/>
+                  <LeftBar icoprops={icoprops}/>
+                  <RightBar icoprops={icoprops}/>
+                  <LeftBarPanel icoprops={icoprops}/>
+                  <BottomBar icoprops={icoprops}/>
                   {/* <No used/> */}
                   <ComfirmWrapper/>
                   <Fade/>
-                  <NotificationList/>
+                  <NotificationList icoprops={icoprops}/>
                 </div>
-                <div style={a}>
-                    <div><div style={b}></div></div>
-                    <div><div style={b}></div></div>
+                <div style={a} className="react-view-helper">
+                    <ReactViewHelperA icoprops={icoprops}/>
+                    <ReactViewHelperB icoprops={icoprops}/>
                     <SidebarIcoEnter icoprops={icoprops}/>
                 </div>
             </div>

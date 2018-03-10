@@ -1,7 +1,10 @@
 import $ from 'jquery';
-let ICO_CLICK='ICO_CLICK';
-let ICO_MOUSE_ENTER='ICO_MOUSE_ENTER';
-let ICO_MOUSE_LEAVE='ICO_MOUSE_LEAVE';
+let EYE_TOGGLE='EYE_TOGGLE';//眼睛图标
+let ICO_MOUSE_ENTER='ICO_MOUSE_ENTER';//鼠标进入图标
+let ICO_MOUSE_LEAVE='ICO_MOUSE_LEAVE';//鼠标离开图标
+let TOPBAR_TOGGLE='TOPBAR_TOGGLE';//是否显示顶部菜单
+let SELECT_MEDIA='SELECT_MEDIA';//选择媒体类型，根据发送的参数mediaType显示对应模式
+var timer=null;
 /**
  * 根据点击的节点ID设置对应的文字提示信息
  * @param  {[string]} id [data-automation-id]
@@ -154,20 +157,73 @@ function icoTipMsg(e){
  * @param  {[type]} e [description]
  * @return {[type]}   [description]
  */
-export function icoClickToggle(e){
-    let id=e.currentTarget.getAttribute('data-automation-id');
-
-    return { type: ICO_CLICK, id}
+export function eyeToggle(e,eyeStatus){
+    return { type: EYE_TOGGLE,eyeStatus}
+}
+/**
+ * 是否显示顶部菜单
+ * @param  {boolean} topBarStatus [对topbar状态取反]
+ * @return {[type]}              [description]
+ */
+export function toggleTopBar(topBarStatus){
+    return {type:TOPBAR_TOGGLE,topBarStatus}
 }
 
-var timer=null;
+export function selectMedia(e,mediaType){
+    //如果按钮已经激活，再次点击阻断提交
+    return function(dispatch){
+        if($(e.target).is('.bem-TopBar_Body_MediaQueryButton-active')){
+            return false;
+        }
+        //返回媒体尺寸范围
+        let mediaSize={};
+        switch(mediaType){
+            case 1:
+            let size=$(window).width()-296;//左侧，右侧，以及margin的尺寸
+            mediaSize={
+                mediaWidth:size,
+                mediaMax:size,
+                mediaMin:992,
+                typeName:'media-main'
+            }
+            break;
+            case 2:
+            mediaSize={
+                mediaWidth:768,
+                mediaMax:991,
+                mediaMin:768,
+                typeName:'media-medium'
+            }
+            break;
+            case 3:
+            mediaSize={
+                mediaWidth:568,
+                mediaMax:767,
+                mediaMin:480,
+                typeName:'media-small'
+            }
+            break;
+            case 4:
+            mediaSize={
+                mediaWidth:320,
+                mediaMax:479,
+                mediaMin:240,
+                typeName:'media-tiny'
+            }
+            break;
+            default:
+            mediaSize={};
+        }
+        dispatch({type:SELECT_MEDIA,media:{mediaType,...mediaSize}});
+    }
+}
 /**
  * 鼠标悬停在图标上，显示文字解释框
  * @param  {[type]} e [description]
  * @return {[type]}   [description]
  */
 export function icoMouseEnter(e){
-    e.preventDefault();
+    // e.preventDefault();
     e.stopPropagation();
     let id=e.currentTarget.getAttribute('data-automation-id');
     return function(dispatch){

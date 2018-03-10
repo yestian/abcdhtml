@@ -19,26 +19,31 @@ import LeftBotHelp from './leftbottom/leftbothelp';
 class Leftbar extends Component{
     render() {
         let {icoMouseEnter,icoClickToggle,icoMouseLeave}=this.props;
-        return (
-            <div className="left-sidebar">
-                <div className="left-sidebar-links">
-                    <LeftLogoFlux/>
-                    <LeftAdd onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
-                    <LeftPages onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
-                    <LeftCms onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
-                    <LeftPictures onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
-                    <LeftSettings onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
-                    <div className="bottom">
-                        <LeftBotEdges onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
-                        <LeftBotShowEmpty onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
-                        <LeftBotShowGrid onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
-                        <LeftBotShowXray onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
-                        <LeftBotTutor onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
-                        <LeftBotHelp onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
+        if(!!this.props.icoprops.eyeStatus!==true){
+            return (
+                <div className="left-sidebar">
+                    <div className="left-sidebar-links">
+                        <LeftLogoFlux/>
+                        <LeftAdd onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
+                        <LeftPages onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
+                        <LeftCms onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
+                        <LeftPictures onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
+                        <LeftSettings onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
+                        <div className="bottom">
+                            <LeftBotEdges onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
+                            <LeftBotShowEmpty onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
+                            <LeftBotShowGrid onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
+                            <LeftBotShowXray onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
+                            <LeftBotTutor onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
+                            <LeftBotHelp onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
+                        </div>
                     </div>
                 </div>
-            </div>
-        )
+            )
+        }else{
+            return '';
+        }
+
     }
 }
 export default connect(

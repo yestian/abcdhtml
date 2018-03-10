@@ -1,7 +1,7 @@
 import React from 'react';
 
 function SidebarIcoEnter(props){
-        if(props.icoprops.enter!==0){
+        if(!!props.icoprops.enter!==false){
             let ico=props.icoprops;
             let tooltip={
                 position: 'absolute',

@@ -157,8 +157,8 @@ function icoTipMsg(e){
  * @param  {[type]} e [description]
  * @return {[type]}   [description]
  */
-export function eyeToggle(e,eyeStatus){
-    return { type: EYE_TOGGLE,eyeStatus}
+export function eyeToggle(e,eyeStatus,botBarStatus){
+    return { type: EYE_TOGGLE,eyeStatus,botBarStatus}
 }
 /**
  * 是否显示顶部菜单

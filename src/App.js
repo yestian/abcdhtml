@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import $ from 'jquery';
 import {connect} from 'react-redux';
-import WorkSpace from './workSpace';
+import WorkSpace from './workspace.js';
 import DesignerReact from './DesignerReact';
 
 class App extends Component{

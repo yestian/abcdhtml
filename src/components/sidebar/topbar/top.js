@@ -35,7 +35,7 @@ class Topbar extends Component{
                     {/* 显示网站页面列表的按钮 */}
                     <TopbarShowPagesBtn/>
                     {/* 眼睛图标 */}
-                    <TopbarEye onClick={eyeToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave} eyeStatus={ico_event.eyeStatus}/>
+                    <TopbarEye onClick={eyeToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave} prop={ico_event}/>
                 </div>
                 {/* 中间的媒体图标 */}
                <TopbarCenter onClick={selectMedia} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave} media={ico_event.media}/>

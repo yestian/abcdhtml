@@ -4,6 +4,7 @@ const stateInit={
     enter:0,//图标的mousenter
     eyeStatus:0,//眼睛状态
     topBarStatus:1,//顶部菜单默认显示
+    botBarStatus:1,//底部菜单默认显示
     leftClick:{//点击的时候，只返回当前点击的按钮值，值从点击参数中取反
         addClick:0,//添加元素
         pagesClick:0,//页面列表

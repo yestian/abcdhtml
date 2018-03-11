@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
+import React,{Component} from 'react';
 import {connect} from 'react-redux';
+import { bindActionCreators} from 'redux';
+import * as actionsCreators from './actions/icoAction';
 
 import TopBar from './components/sidebar/topbar/top';
 import DesignerLogo from './components/sidebar/designerlogo';
@@ -13,6 +15,7 @@ import NotificationList from './components/sidebar/notificationlist';
 import ReactViewHelperA from './components/sidebar/reactViewHelperA';
 import ReactViewHelperB from './components/sidebar/reactViewHelperB';
 import SidebarIcoEnter from './components/sidebar/SidebarIcoEnter';
+import LogoOpenMenu from './components/sidebar/logoOpenMenu';
 
 class DesignerReact extends Component {
     render() {
@@ -29,15 +32,19 @@ class DesignerReact extends Component {
             WebkitFontSmoothing:'antialiased'
         }
         let icoprops=this.props.ico.ico_event;
+        let {toggleLogo}=this.props;
         return (
             <div>
                 <div>
                     {/* svg图标集合 */}
                   <TopBar/>
-                  <DesignerLogo icoprops={icoprops}/>
-                  <LeftBar icoprops={icoprops}/>
+                  <DesignerLogo icoprops={icoprops} onClick={toggleLogo}/>
+                  <LeftBar/>
                   <RightBar icoprops={icoprops}/>
-                  <LeftBarPanel icoprops={icoprops}/>
+                  {/* 左侧点击按钮，产生的二级页面，放在这个里面，根据不同的按钮，通过中间判断页面，显示不同的内容 */}
+                  <div className={`bem-LeftSidebarPanels ${!icoprops.eyeStatus?'visible':''}`}>
+                        <LeftBarPanel icoprops={icoprops}/>
+                  </div>
                   <BottomBar icoprops={icoprops}/>
                   {/* <No used/> */}
                   <ComfirmWrapper/>
@@ -48,10 +55,15 @@ class DesignerReact extends Component {
                     <ReactViewHelperA icoprops={icoprops}/>
                     <ReactViewHelperB icoprops={icoprops}/>
                     <SidebarIcoEnter icoprops={icoprops}/>
+                    <LogoOpenMenu icoprops={icoprops} onMouseLeave={toggleLogo}/>
                 </div>
             </div>
         );
     }
 }
 
-export default connect(state=>state)(DesignerReact);
+
+export default connect(
+    state=>state,
+    dispatch=>bindActionCreators(actionsCreators,dispatch)
+)(DesignerReact);

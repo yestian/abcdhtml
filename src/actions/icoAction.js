@@ -4,6 +4,18 @@ let ICO_MOUSE_ENTER='ICO_MOUSE_ENTER';//鼠标进入图标
 let ICO_MOUSE_LEAVE='ICO_MOUSE_LEAVE';//鼠标离开图标
 let TOPBAR_TOGGLE='TOPBAR_TOGGLE';//是否显示顶部菜单
 let SELECT_MEDIA='SELECT_MEDIA';//选择媒体类型，根据发送的参数mediaType显示对应模式
+let TOGGLE_EDGES='TOGGLE_EDGES';//是否显示元素边缘
+let TOGGLE_EMPTY='TOGGLE_EMPTY';//是否显示空元素
+let TOGGLE_GRID='TOGGLE_GRID';//是否显示网格
+let TOGGLE_XRAY='TOGGLE_XRAY';//是否显示X射线
+let TOGGLE_TOTUR='TOGGLE_TOTUR';//是否显示指导视频
+let TOGGLE_LOGO='TOGGLE_LOGO';//点击显示logo下的菜单
+let TOGGLE_ADD='TOGGLE_ADD';//页面添加元素
+let TOGGLE_PAGES='TOGGLE_PAGES';//页面列表切换
+let TOGGLE_CMS='TOGGLE_CMS';//模板选择
+let TOGGLE_PICTURES='TOGGLE_PICTURES';//图片列表
+let TOGGLE_SETTINGS='TOGGLE_SETTINGS';//系统设置
+let TOGGLE_ADDTYPE='TOGGLE_ADDTYPE';//添加按钮下级菜单里面的切换
 var timer=null;
 /**
  * 根据点击的节点ID设置对应的文字提示信息
@@ -158,6 +170,7 @@ function icoTipMsg(e){
  * @return {[type]}   [description]
  */
 export function eyeToggle(e,eyeStatus,botBarStatus){
+    clearTimeout(timer);
     return { type: EYE_TOGGLE,eyeStatus,botBarStatus}
 }
 /**
@@ -168,7 +181,67 @@ export function eyeToggle(e,eyeStatus,botBarStatus){
 export function toggleTopBar(topBarStatus){
     return {type:TOPBAR_TOGGLE,topBarStatus}
 }
-
+/**
+ * 是否显示元素边缘
+ * @param  {boolean} showEdges 对元素边缘的值取反0，1得到false,true
+ * @return {[type]}           [description]
+ */
+export function toggleEdges(showEdges){
+    clearTimeout(timer);
+    return {type:TOGGLE_EDGES,showEdges}
+}
+/**
+ * 是否显示空元素
+ * @param  {boolean} showEmpty 对元素的值取反0，1得到false,true
+ * @return {[type]}           [description]
+ */
+export function toggleEmpty(showEmpty){
+    clearTimeout(timer);
+    return {type:TOGGLE_EMPTY,showEmpty}
+}
+export function toggleGrid(showGrid){
+    clearTimeout(timer);
+    return {type:TOGGLE_GRID,showGrid}
+}
+export function toggleXray(showXray){
+    clearTimeout(timer);
+    return {type:TOGGLE_XRAY,showXray}
+}
+export function toggleTutor(showTutor){
+    clearTimeout(timer);
+    return {type:TOGGLE_TOTUR,showTutor}
+}
+export function toggleLogo(showLogoMenu){
+    return {type:TOGGLE_LOGO,showLogoMenu}
+}
+export function toggleAdd(showAdds){
+    clearTimeout(timer);
+    return {type:TOGGLE_ADD,showAdds}
+}
+export function toggleAddType(e,addType){
+    return function(dispatch){
+        if($(e.currentTarget).is('.active')){
+            return false;
+        }
+        dispatch({type:TOGGLE_ADDTYPE,addType});
+    }
+}
+export function togglePages(showPages){
+    clearTimeout(timer);
+    return {type:TOGGLE_PAGES,showPages}
+}
+export function toggleCMS(showCMS){
+    clearTimeout(timer);
+    return {type:TOGGLE_CMS,showCMS}
+}
+export function togglePictures(showPictures){
+    clearTimeout(timer);
+    return {type:TOGGLE_PICTURES,showPictures}
+}
+export function toggleSettings(showSettings){
+    clearTimeout(timer);
+    return {type:TOGGLE_SETTINGS,showSettings}
+}
 export function selectMedia(e,mediaType){
     //如果按钮已经激活，再次点击阻断提交
     return function(dispatch){

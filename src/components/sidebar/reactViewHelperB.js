@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 
 class HelperB extends Component{
     render(){
-        if(!!this.props.icoprops.eyeStatus!==true){
+        let ico=this.props.icoprops;
+        if(!!ico.eyeStatus===true || !!ico.showAdds===true || !!ico.showPages===true || !!ico.showPictures===true || !!ico.showSettings===true){
+            return '';
+        }else{
             let b={
                 position: 'absolute',
                 pointerEvents: 'none',
@@ -15,10 +18,7 @@ class HelperB extends Component{
             return(
                 <div><div style={b}></div></div>
             )
-        }else{
-            return '';
         }
-
     }
 }
 

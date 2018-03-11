@@ -15,9 +15,18 @@ function setIframe(){
     }
     $('#site-iframe-next').height(operHeight-topbarH-botBarH);
 }
+/**
+ * 添加元素的二级页面，元素组件区域的高度
+ */
+function addElementSubpageHeight(){
+    let H=$(window).height()-119;
+    $('#addElementsBox').height(H);
+}
+
 $(function(){
      setIframe();
      $(window).resize(function(){
         setIframe();
+        addElementSubpageHeight();
      });
 });

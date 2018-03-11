@@ -9,33 +9,35 @@ import LeftPages from './leftpages';
 import LeftCms from './leftcms';
 import LeftPictures from './leftpictures';
 import LeftSettings from './leftsettings';
-import LeftBotEdges from './leftbottom/leftbotedges';
-import LeftBotShowEmpty from './leftbottom/leftbotempty';
-import LeftBotShowGrid from './leftbottom/leftbotgrid';
-import LeftBotShowXray from './leftbottom/leftbotxray';
-import LeftBotTutor from './leftbottom/leftbottutor';
-import LeftBotHelp from './leftbottom/leftbothelp';
+import LeftBotEdges from './leftbottom/leftBottomEdges';
+import LeftBotShowEmpty from './leftbottom/leftBottomEmpty';
+import LeftBotShowGrid from './leftbottom/leftBottomGrid';
+import LeftBotShowXray from './leftbottom/leftBottomXray';
+import LeftBotTutor from './leftbottom/leftBottomTutor';
+import LeftBotHelp from './leftbottom/leftBottomHelp';
 
 class Leftbar extends Component{
     render() {
-        let {icoMouseEnter,icoClickToggle,icoMouseLeave}=this.props;
-        if(!!this.props.icoprops.eyeStatus!==true){
+        let {toggleAdd,togglePages,toggleCMS,togglePictures,toggleSettings,icoMouseEnter,icoMouseLeave,toggleEdges,toggleEmpty,toggleGrid,toggleXray,toggleTutor}=this.props;
+        let ico=this.props.ico.ico_event;
+        // console.log(ico);
+        if(!!ico.eyeStatus!==true){
             return (
                 <div className="left-sidebar">
                     <div className="left-sidebar-links">
                         <LeftLogoFlux/>
-                        <LeftAdd onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
-                        <LeftPages onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
-                        <LeftCms onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
-                        <LeftPictures onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
-                        <LeftSettings onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
+                        <LeftAdd onClick={toggleAdd} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave} props={ico}/>
+                        <LeftPages onClick={togglePages} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave} props={ico}/>
+                        <LeftCms onClick={toggleCMS} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave} props={ico}/>
+                        <LeftPictures onClick={togglePictures} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave} props={ico}/>
+                        <LeftSettings onClick={toggleSettings} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave} props={ico}/>
                         <div className="bottom">
-                            <LeftBotEdges onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
-                            <LeftBotShowEmpty onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
-                            <LeftBotShowGrid onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
-                            <LeftBotShowXray onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
-                            <LeftBotTutor onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
-                            <LeftBotHelp onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
+                            <LeftBotEdges onClick={toggleEdges} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave} ico={ico}/>
+                            <LeftBotShowEmpty onClick={toggleEmpty} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave} ico={ico}/>
+                            <LeftBotShowGrid onClick={toggleGrid} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave} ico={ico}/>
+                            <LeftBotShowXray onClick={toggleXray} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave} ico={ico}/>
+                            <LeftBotTutor onClick={toggleTutor} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave} ico={ico}/>
+                            <LeftBotHelp onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
                         </div>
                     </div>
                 </div>

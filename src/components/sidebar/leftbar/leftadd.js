@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 
 class LeftAdd extends Component{
     render() {
+        let ico=this.props.props;
+        let active='';
+        if(!!ico.leftBtns.showAdds===true){
+            active='active';
+        }
         return (
-            <div className="button top add" data-automation-id="left-sidebar-add-button" onClick={(e)=>this.props.onClick(e)}
+            <div className={`button top add ${active}`} data-automation-id="left-sidebar-add-button"
+            onClick={()=>this.props.onClick(!ico.leftBtns.showAdds)}
             onMouseEnter={(e)=>this.props.onMouseEnter(e)}
             onMouseLeave={(e)=>this.props.onMouseLeave(e)}>
                 <i className="icon-main chrome-add"></i>

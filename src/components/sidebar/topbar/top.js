@@ -16,7 +16,7 @@ import TopbarExport from './topbarexport.js';
 
 class Topbar extends Component{
   render() {
-      let {icoMouseEnter,icoClickToggle,icoMouseLeave,eyeToggle,toggleTopBar,selectMedia}=this.props;
+      let {icoMouseEnter,icoClickToggle,icoMouseLeave,eyeToggle,toggleTopBar,selectMedia,togglePages}=this.props;
       let ico_event=this.props.ico.ico_event;
       if(!!ico_event.topBarStatus===false){
            $(".bem-TopBar_Body").animate({top:'-32px'},500);
@@ -33,7 +33,7 @@ class Topbar extends Component{
                     {/* 眼睛开启模式下才显示的，是否隐藏顶部的按钮 */}
                     <TopbarToHide icoprops={ico_event} onClick={toggleTopBar}/>
                     {/* 显示网站页面列表的按钮 */}
-                    <TopbarShowPagesBtn/>
+                    <TopbarShowPagesBtn icoprops={ico_event} onClick={togglePages}/>
                     {/* 眼睛图标 */}
                     <TopbarEye onClick={eyeToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave} prop={ico_event}/>
                 </div>

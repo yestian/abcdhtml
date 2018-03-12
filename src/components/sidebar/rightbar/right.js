@@ -8,12 +8,15 @@ import RightInner from './rightInner';
 
 class RightBar extends Component{
     render() {
-        let {icoMouseEnter,icoClickToggle,icoMouseLeave}=this.props;
-        if(!!this.props.icoprops.eyeStatus!==true){
+        let {icoMouseEnter,toggleRightTabs,icoMouseLeave}=this.props;
+        let data=this.props.ico;
+        if(!data.eyeStatus){
             return (
                 <div id="right-sidebar" className="right-sidebar">
-                    <RightTabs  onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
-                    <RightInner/>
+                    <RightTabs  onClick={toggleRightTabs} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave} data={data}/>
+                    <div className="inner">
+                        <RightInner data={data}/>
+                    </div>
                 </div>
             )
         }else{

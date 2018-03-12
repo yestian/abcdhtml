@@ -16,6 +16,8 @@ import ReactViewHelperA from './components/sidebar/reactViewHelperA';
 import ReactViewHelperB from './components/sidebar/reactViewHelperB';
 import SidebarIcoEnter from './components/sidebar/SidebarIcoEnter';
 import LogoOpenMenu from './components/sidebar/logoOpenMenu';
+import TutorVideo from './components/sidebar/leftbar/leftsub/tutorVideo';
+import LeftCMSSub from './components/sidebar/leftbar/leftsub/addEleCMS';
 
 class DesignerReact extends Component {
     render() {
@@ -40,10 +42,12 @@ class DesignerReact extends Component {
                   <TopBar/>
                   <DesignerLogo icoprops={icoprops} onClick={toggleLogo}/>
                   <LeftBar/>
-                  <RightBar icoprops={icoprops}/>
+                  <RightBar/>
                   {/* 左侧点击按钮，产生的二级页面，放在这个里面，根据不同的按钮，通过中间判断页面，显示不同的内容 */}
                   <div className={`bem-LeftSidebarPanels ${!icoprops.eyeStatus?'visible':''}`}>
                         <LeftBarPanel icoprops={icoprops}/>
+                        {/* 具体每个元素的解释
+                        <AddElementHelper/> */}
                   </div>
                   <BottomBar icoprops={icoprops}/>
                   {/* <No used/> */}
@@ -54,6 +58,9 @@ class DesignerReact extends Component {
                 <div style={a} className="react-view-helper">
                     <ReactViewHelperA icoprops={icoprops}/>
                     <ReactViewHelperB icoprops={icoprops}/>
+                    <TutorVideo data={icoprops}/>
+                    {/* CMS按钮的二级页面 */}
+                    <LeftCMSSub/>
                     <SidebarIcoEnter icoprops={icoprops}/>
                     <LogoOpenMenu icoprops={icoprops} onMouseLeave={toggleLogo}/>
                 </div>

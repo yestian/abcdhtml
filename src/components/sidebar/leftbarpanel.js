@@ -7,16 +7,16 @@ import Settings from './leftbar/leftsub/settings';
 class LeftbarPanel extends Component{
     render(){
         let ico=this.props.icoprops;
-        if(!!ico.leftBtns.showAdds===true){
+        if(ico.leftBtns.showAdds){
             return <Adds/>
         }
-        if(!!ico.leftBtns.showPages===true){
+        if(ico.leftBtns.showPages){
             return <Pages/>
         }
-        if(!!ico.leftBtns.showPictures===true){
+        if(ico.leftBtns.showPictures){
             return <Pictures/>
         }
-        if(!!ico.leftBtns.showSettings===true){
+        if(ico.leftBtns.showSettings){
             return <Settings/>
         }
         //默认显示这个空的div

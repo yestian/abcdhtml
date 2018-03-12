@@ -9,7 +9,6 @@ const stateInit={
     showEmpty:1,//默认显示空元素
     showGrid:0,//默认不显示网格，0，1,2切换
     showXray:0,//默认不显示
-    showTutor:0,//默认不打开视频知道
     showLogoMenu:0,//默认不显示logomenu
     addType:0,//添加按钮里面的类型切换
     leftBtns:{
@@ -18,6 +17,7 @@ const stateInit={
         showCMS:0,//模板列表
         showPictures:0,//图标列表
         showSettings:0,//系统设置
+        showTutor:0,//默认不打开视频知道
     },
     media:{
         mediaType:1,
@@ -27,6 +27,8 @@ const stateInit={
         typeName:'media-main',//显示在workspce类上
     }
 }
+
+
 const ico_event=(state=stateInit,action)=>{
     switch(action.type){
         //点击眼睛图标
@@ -52,6 +54,7 @@ const ico_event=(state=stateInit,action)=>{
                 showAdds:action.showAdds,
                 showPages:0,
                 showCMS:0,
+                showTutor:0,
                 showPictures:0,
                 showSettings:0,
             }
@@ -67,6 +70,7 @@ const ico_event=(state=stateInit,action)=>{
                 showAdds:0,
                 showPages:action.showPages,
                 showCMS:0,
+                showTutor:0,
                 showPictures:0,
                 showSettings:0,
             }
@@ -77,6 +81,7 @@ const ico_event=(state=stateInit,action)=>{
             leftBtns:{
                 showAdds:0,
                 showPages:0,
+                showTutor:0,
                 showCMS:action.showCMS,
                 showPictures:0,
                 showSettings:0,
@@ -87,6 +92,7 @@ const ico_event=(state=stateInit,action)=>{
         return Object.assign({},state,{
             leftBtns:{
                 showAdds:0,
+                showTutor:0,
                 showPages:0,
                 showCMS:0,
                 showPictures:action.showPictures,
@@ -100,6 +106,7 @@ const ico_event=(state=stateInit,action)=>{
                 showAdds:0,
                 showPages:0,
                 showCMS:0,
+                showTutor:0,
                 showPictures:0,
                 showSettings:action.showSettings,
             }
@@ -127,7 +134,14 @@ const ico_event=(state=stateInit,action)=>{
         //是否显示视频指导
         case 'TOGGLE_TOTUR' :
         return Object.assign({},state,{
-            ...action,
+            leftBtns:{
+                showAdds:0,
+                showPages:0,
+                showCMS:0,
+                showTutor:action.showTutor,
+                showPictures:0,
+                showSettings:0
+            }
         });
         //是否显示logo下的菜单
         case 'TOGGLE_LOGO' :
@@ -147,10 +161,25 @@ const ico_event=(state=stateInit,action)=>{
         return state;
     }
 }
+//--------------------右侧功能---------------------------------
 
-
+const rightState={
+    right_tab_index:1,//右侧默认显示第一个按钮内容,12,3,4,5
+}
+//右侧工具栏的功能集合
+const right=(state=rightState,action)=>{
+    switch(action.type){
+        case 'TOGGLE_RIGHT_TABS':
+        return Object.assign({},state,{
+            ...action,
+        });
+        default:
+        return state;
+    }
+}
 //////////--------------------合并---------------------////////////////////////
 const reducer=combineReducers({
-    ico_event
+    ico_event,
+    right
 });
 export default reducer;

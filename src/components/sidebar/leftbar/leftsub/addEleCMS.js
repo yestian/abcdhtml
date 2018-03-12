@@ -1,17 +1,37 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import $ from 'jquery';
 
 class addEleCMS extends Component{
      render(){
-         let data=this.props.data;
-         let arrow='';
-         if(1){
-            arrow=<svg width="9" height="6" viewBox="0 0 9 6" className="bem-Svg " style={{display: 'block',transform: 'translate(0px, 0px)'}}><path fill="currentColor" d="M4.5 5L1 1h7z"></path></svg>;
+         if(this.props.ico.ico_event.leftBtns.showCMS){
+             let cmsHeight=$(window).height()-35;
+             return(
+                 <div><div id="cmsbox" style={{pointerEvents: 'none', position: 'absolute', left: 35, top: 34, width: 1885,height:cmsHeight}}>
+                     <div className="bem-Panel" style={{display: 'flex', maxWidth: '100%', flexGrow: 1, height: '100%'}}>
+                         <div className="bem-Pane " style={{display: 'flex', flexBasis: 250, flexDirection: 'column', flexShrink: 0, width: 250}}>
+                             <div className="bem-Pane_Head">
+                                 <div className="bem-Heading bem-Heading-h1 bem-Pane_Title">程序选择</div>
+                                 <div className="bem-Pane_Close"><div className="bem-Pane_CloseIcon sprite-main" /></div>
+                                 <div className="bem-Pane_Actions "><button data-automation-id="cms-new-collection-button" type="button" className="bem-Button bem-Button-icon bem-Button-head bem-Button-lighter"><i className="bem-Icon  icon-dynamo add-collection" /></button></div>
+                             </div>
+                         <div className="bem-Pane_Body  kit-scroll-pane kit-scrollbar" style={{display: 'flex', overflow: 'auto', flexDirection: 'column', flexGrow: 1}}>
+                             <div className="bem-Pane_Body_Inner" style={{flexGrow: 1}}><div className="bem-List "><div className="bem-List_Row  bem-List_Row-big bem-List_Row-clickable"><div className="bem-List_Cell "><i className="bem-List_Icon  icon-undefined undefined"><i className="bem-Icon  icon-dynamo collection" style={{bottom: 2}} /></i></div>
+                             <div className="bem-List_Cell " style={{maxWidth: '100%', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}><span className="bem-Text ">作者</span></div>
+                             <div className="bem-List_Cell " style={{maxWidth: '100%', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flexBasis: 'auto', flexShrink: 0}}><span className="bem-Text bem-Text-dimmer">6 items</span></div>
+                             <div className="bem-List_Cell " style={{flexGrow: 1, flexShrink: 0}}><div className="bem-ProfilePictures" style={{display: 'flex', paddingLeft: '7.2px'}} /></div>
+                             <div className="bem-List_Action bem-List_Action-shy"><span className="bem-Link bem-Link-dim" style={{padding: '6px 0px 6px 6px'}}><i title="Edit Settings" className="bem-Icon  icon-main common-list-settings bem-Link_Icon" style={{display: 'inline-block', bottom: 1}} /></span></div>
+                         </div></div>
+                         <div className="bem-Pane_Card ">
+                             <div className="bem-Pane_CardClose"><span className="bem-Link "><i className="bem-Icon  icon-main common-close bem-Link_Icon" style={{display: 'inline-block'}} /></span></div>
+                             <div className="bem-Heading bem-Heading-h4 bem-Heading-isolate">Discover the power of the Webflow CMS and Collections</div>
+                             <a href="/" rel="noopener noreferrer" className="bem-VideoThumbnail bem-VideoThumbnail-isolate"><img alt='img' src="https://d3e54v103j8qbb.cloudfront.net/img/dm-videothumbnail@2x.221858e235.png" className="bem-VideoThumbnail_Image" /><div className="bem-VideoThumbnail_Overlay" /><i className="bem-VideoThumbnail_Icon  icon-main ftu-overlay-play-button" /></a><div className="bem-Pane_CardFooter">Watch more video tutorials on the <a rel="noopener noreferrer" href="/" className="bem-TextLink">Webflow University</a>.</div></div></div>
+                         </div></div></div></div></div>
+            )
         }else{
-            arrow=<svg width="6" height="9" viewBox="0 0 6 9" className="bem-Svg " style={{display: 'block',transform: 'translate(0px, 0px)'}}><path fill="currentColor" d="M5 4.5L1 8V1z"></path></svg>;
+            return '';
         }
-         return(
-            <div style={{borderBottom: 0, marginBottom: 0}}><div style={{display: 'flex', flexDirection: 'column', flex: '0 1 auto'}}><div tabIndex={0} style={{outline: 0, cursor: 'default', userSelect: 'none', background: 'rgb(43, 43, 43)', borderTop: '1px solid rgb(33, 33, 33)', borderBottom: '1px solid rgb(33, 33, 33)', height: 28, paddingTop: 8, paddingBottom: 8, boxSizing: 'border-box', display: 'flex', alignItems: 'center', flex: '0 1 auto'}}><div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: 16, height: 20}}><svg width={9} height={6} viewBox="0 0 9 6" className="bem-Svg " style={{display: 'block', transform: 'translate(0px, 0px)'}}><path fill="currentColor" d="M4.5 5L1 1h7z" /></svg></div><div style={{width: 'calc(100% - 12px)', color: 'rgb(217, 217, 217)', fontSize: 12, fontFamily: '-apple-system, BlinkMacSystemFont, proxima-nova, Roboto, Arial, sans-serif, Georgia, serif', lineHeight: 16, fontWeight: 600}}>CMS</div></div><div columncount={3} style={{display: 'flex', flexWrap: 'wrap'}}><div flexbasis="33.33333333333333%" style={{flexBasis: '33.3333%', overflow: 'hidden', boxSizing: 'border-box', borderRight: '1px solid rgb(51, 51, 51)', borderBottom: '1px solid rgb(51, 51, 51)'}}><div data-automation-id="add-tab-cms-collection-list" style={{color: 'rgb(217, 217, 217)', fontFamily: 'Arial, sans-serif', fontSize: 11, lineHeight: 16, WebkitFontSmoothing: 'antialiased', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: 92, cursor: '-webkit-grab', backgroundColor: 'rgb(64, 64, 64)'}}><div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', minHeight: 40}}><svg width={45} height={37} viewBox="0 0 45 37" className="bem-Svg " style={{display: 'block', transform: 'translate(0px, 0px)'}}><g opacity="0.4"><path d="M42,1a2,2,0,0,1,1.12.34,2,2,0,0,1,.73.88A2,2,0,0,1,44,3V34a2,2,0,0,1-2,2H3a2,2,0,0,1-1.12-.34,2,2,0,0,1-.73-.88A2,2,0,0,1,1,34V3A2,2,0,0,1,3,1H42m0-1H3A3,3,0,0,0,0,3V34a3,3,0,0,0,.24,1.17,3,3,0,0,0,1.09,1.32A3,3,0,0,0,3,37H42a3,3,0,0,0,3-3V3a3,3,0,0,0-.24-1.17A3,3,0,0,0,43.68.51,3,3,0,0,0,42,0Z" /></g><path d="M43.84,2.22a2,2,0,0,0-.73-.88A2,2,0,0,0,42,1H3A2,2,0,0,0,1,3V34a2,2,0,0,0,.16.78,2,2,0,0,0,.73.88A2,2,0,0,0,3,36H42a2,2,0,0,0,2-2V3A2,2,0,0,0,43.84,2.22ZM3,3H42v9H3ZM42,34H3V25H42Zm0-11H3V14H42Z" fill="currentColor" /><rect x={3} y={3} width={39} height={31} fill="currentColor" opacity="0.2" /></svg></div><div style={{display: 'flex', flexDirection: 'column', fontSize: 11, textShadow: 'none', padding: '6px 6px 0px', justifyContent: 'center', color: 'rgb(166, 166, 166)', lineHeight: '1.2', textAlign: 'center', cursor: 'inherit', userSelect: 'none'}}>Collection List</div><div style={{position: 'absolute', top: 3, left: 3, display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgb(120, 104, 190)', width: 16, height: 17, borderRadius: 3, borderWidth: 1, borderStyle: 'solid', borderColor: 'rgb(51, 51, 51)', cursor: 'default', color: 'rgba(255, 255, 255, 0.9)'}}><svg width={8} height={9} viewBox="0 0 8 9" className="bem-Svg " style={{display: 'block', transform: 'translate(0px, 0px)'}}><path d="M.53,4.35C.35,4.28.17,4.2,0,4.13V5.2a3.69,3.69,0,0,0,.32.2A8.15,8.15,0,0,0,4,6.19a8.92,8.92,0,0,0,2.93-.47A5.12,5.12,0,0,0,8,5.21V4.12A10,10,0,0,1,4,4.9,10.5,10.5,0,0,1,.53,4.35Zm0,2.89C.35,7.16.17,7.09,0,7V8c.1.06.19.13.3.19A8.2,8.2,0,0,0,4,9a9,9,0,0,0,3-.47A5.21,5.21,0,0,0,8,8V7a10,10,0,0,1-4,.79A10.5,10.5,0,0,1,.53,7.23ZM7.7.8A8.19,8.19,0,0,0,4,0,9,9,0,0,0,1,.48,5.21,5.21,0,0,0,0,1V2.31a3.69,3.69,0,0,0,.32.2A8.14,8.14,0,0,0,4,3.3a8.91,8.91,0,0,0,2.93-.47A5.12,5.12,0,0,0,8,2.33V1C7.9.93,7.81.86,7.7.8Z" fill="currentColor" /></svg></div></div></div><div flexbasis="33.33333333333333%" style={{flexBasis: '33.3333%', overflow: 'hidden', boxSizing: 'border-box', borderRight: '1px solid rgb(51, 51, 51)', borderBottom: '1px solid rgb(51, 51, 51)'}} /><div flexbasis="33.33333333333333%" style={{flexBasis: '33.3333%', overflow: 'hidden', boxSizing: 'border-box', borderRight: 0, borderBottom: '1px solid rgb(51, 51, 51)'}} /></div></div></div>
-        )
+
     }
 }
-export default addEleCMS;
+export default connect(state=>state)(addEleCMS);

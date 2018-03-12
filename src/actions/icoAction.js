@@ -16,6 +16,7 @@ let TOGGLE_CMS='TOGGLE_CMS';//模板选择
 let TOGGLE_PICTURES='TOGGLE_PICTURES';//图片列表
 let TOGGLE_SETTINGS='TOGGLE_SETTINGS';//系统设置
 let TOGGLE_ADDTYPE='TOGGLE_ADDTYPE';//添加按钮下级菜单里面的切换
+let TOGGLE_RIGHT_TABS='TOGGLE_RIGHT_TABS';//右侧顶部按钮切换
 var timer=null;
 /**
  * 根据点击的节点ID设置对应的文字提示信息
@@ -241,6 +242,16 @@ export function togglePictures(showPictures){
 export function toggleSettings(showSettings){
     clearTimeout(timer);
     return {type:TOGGLE_SETTINGS,showSettings}
+}
+
+export function toggleRightTabs(e,right_tab_index){
+    return function(dispatch){
+        if($(e.currentTarget).is('.active')){
+            return false;
+        }
+        clearTimeout(timer);
+        dispatch({type:TOGGLE_RIGHT_TABS,right_tab_index});
+    }
 }
 export function selectMedia(e,mediaType){
     //如果按钮已经激活，再次点击阻断提交

@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 
 class LeftAdd extends Component{
     render() {
+        // console.log(this.props);
         let ico=this.props.props;
         let active='';
-        if(!!ico.leftBtns.showAdds===true){
+        if(ico.leftBtns.showAdds){
             active='active';
         }
         return (

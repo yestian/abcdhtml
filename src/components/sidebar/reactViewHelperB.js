@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 class HelperB extends Component{
     render(){
-        let ico=this.props.icoprops;
-        if(!!ico.eyeStatus===true || !!ico.showAdds===true || !!ico.showPages===true || !!ico.showPictures===true || !!ico.showSettings===true){
+        let ico=this.props.icoprops.leftBtns;
+        if(ico.eyeStatus || ico.showAdds || ico.showPages || ico.showPictures || ico.showSettings || ico.showTutor || ico.showCMS){
             return '';
         }else{
             let b={

@@ -4,6 +4,7 @@ import { bindActionCreators} from 'redux';
 import * as actionsCreators from '../../../../actions/icoAction';
 import $ from 'jquery';
 import AddContents from './addContents';
+import { Scrollbars } from 'react-custom-scrollbars';
 //添加按钮的产生的二级页面
 
 class Add extends Component{
@@ -52,11 +53,11 @@ class Add extends Component{
                                 </div>
                             </div>
                             <div id="addElementsBox" style={{position: 'relative',overflow: 'hidden',width: '248px'}}>
-                                <div style={{transform: 'translate3d(0px, 0px, 0px)',height: '1505px'}}>
-                                    <AddContents type={type}/>
-                                    {/* <ElementHelp/> */}
-                                </div>
-                                {/* <div>滚动条代码</div> */}
+                                <Scrollbars autoHide>
+                                    <div style={{transform: 'translate3d(0px, 0px, 0px)'}}>
+                                        <AddContents type={type}/>
+                                    </div>
+                                </Scrollbars>
                             </div>
                         </div>
                     </div>

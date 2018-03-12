@@ -712,3 +712,7 @@ html img.wf-resizing {
 .wf-ghost-span.mode-float-left {
   float: left;
 }
+.pageico{
+    background: url(./img/page.png) 0 50% no-repeat;
+    display: inline-block;width: 15px;height: 16px;
+}

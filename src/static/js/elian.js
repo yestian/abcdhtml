@@ -22,11 +22,28 @@ function addElementSubpageHeight(){
     let H=$(window).height()-119;
     $('#addElementsBox').height(H);
 }
-
+/**
+ * 图片列表的高度
+ * @return {[type]} [description]
+ */
+function pictureBoxHeight(){
+    let H=$(window).height()-147;
+    $('#assets-tab').height(H);
+}
+/**
+ * CMS二级页面高度
+ * @return {[type]} [description]
+ */
+function cmsHeight(){
+    let H=$(window).height()-35;
+    $('#cmsbox').height(H);
+}
 $(function(){
      setIframe();
      $(window).resize(function(){
         setIframe();
         addElementSubpageHeight();
+        pictureBoxHeight();
+        cmsHeight();
      });
 });

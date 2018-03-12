@@ -259,6 +259,7 @@ export function selectMedia(e,mediaType){
         if($(e.target).is('.bem-TopBar_Body_MediaQueryButton-active')){
             return false;
         }
+        clearTimeout(timer);
         //返回媒体尺寸范围
         let mediaSize={};
         switch(mediaType){
@@ -314,7 +315,7 @@ export function icoMouseEnter(e){
         let tipmsg=icoTipMsg(e);
         timer=setTimeout(()=>{
             dispatch({type: ICO_MOUSE_ENTER,dataId:id, ...tipmsg});
-        },500);
+        },600);
     }
 }
 

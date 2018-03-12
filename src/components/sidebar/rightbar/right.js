@@ -10,7 +10,7 @@ class RightBar extends Component{
     render() {
         let {icoMouseEnter,toggleRightTabs,icoMouseLeave}=this.props;
         let data=this.props.ico;
-        if(!data.eyeStatus){
+        if(!data.ico_event.eyeStatus){
             return (
                 <div id="right-sidebar" className="right-sidebar">
                     <RightTabs  onClick={toggleRightTabs} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave} data={data}/>

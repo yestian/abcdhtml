@@ -3,12 +3,14 @@ import {connect} from 'react-redux';
 import ToolsFlux from './components/workspace/toolsFlux';
 import SiteIframe from './components/workspace/siteIframe';
 import $ from 'jquery';
+require('jquery-ui');
 class WorkSpace extends Component{
      render(){
-        let media=this.props.ico.ico_event.media;
+        let data=this.props.ico.ico_event;
+        let media=data.media;
         let typeName=media.typeName;
         let size={};
-        if(!!this.props.ico.ico_event.eyeStatus===true && this.props.ico.ico_event.media.mediaType===1){
+        if(!!data.eyeStatus===true && data.media.mediaType===1){
            size={
                width:$(window).width()-20,
                maxWidth:$(window).width()-20,

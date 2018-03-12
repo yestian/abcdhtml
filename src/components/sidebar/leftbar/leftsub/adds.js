@@ -45,7 +45,7 @@ class Add extends Component{
                                         <div style={{marginLeft:'-1px',...eleMode}} onClick={(e)=>this.props.toggleAddType(e,!type)} className={type?'active':''}>
                                             <div data-automation-id="add-tab-symbol-tab" style={type?active:normal}>
                                                 <div style={eleBox}>
-                                                    <div style={ele}>符号</div>
+                                                    <div style={ele}>标记</div>
                                                 </div>
                                             </div>
                                         </div>

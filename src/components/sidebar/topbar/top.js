@@ -41,11 +41,11 @@ class Topbar extends Component{
                <TopbarCenter onClick={selectMedia} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave} media={ico_event.media}/>
                <div className="bem-TopBar_Body_Group bem-TopBar_Body_Group-right">
                    {/* 重做和撤销 */}
-                   <TopbarUndoRedo  onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
+                   <TopbarUndoRedo  onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave} data={ico_event}/>
                    {/* 上传状态 */}
-                   <TopbarRightStatus  onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
+                   <TopbarRightStatus  onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave} data={ico_event}/>
                    {/* 代码输出 */}
-                   <TopbarExport onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
+                   <TopbarExport onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave} data={ico_event}/>
                    {/* 项目发布 */}
                    <TopbarPublish onClick={icoClickToggle} onMouseEnter={icoMouseEnter} onMouseLeave={icoMouseLeave}/>
                </div>

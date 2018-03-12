@@ -6,8 +6,8 @@ class RightTabs extends Component{
         let data=fn.data.right.right_tab_index;
         return (
             <div className="tabs">
-                <div className={`tab style-tab ${data===1?'active':''}`} data-automation-id="right-sidebar-style"
-                onClick={(e)=>fn.onClick(e,1)}
+                <div className={`tab style-tab ${data===1?'active':''}`}
+                    data-automation-id="right-sidebar-style" onClick={(e)=>fn.onClick(e,1)}
                 onMouseEnter={(e)=>fn.onMouseEnter(e)}
                 onMouseLeave={(e)=>fn.onMouseLeave(e)}>
                     <span className="sprite-mid"><i></i></span>
@@ -22,13 +22,13 @@ class RightTabs extends Component{
                 onMouseLeave={(e)=>fn.onMouseLeave(e)}>
                     <span className="sprite-mid"><i></i></span>
                 </div>
-                <div className={`tab all-styles-tab ${data===4?'active':''}`} data-automation-id="right-sidebar-allstyles" onClick={(e)=>fn.onClick(e,4)}
+                <div className={`tab all-styles-tab ${data===4?'active':''}`}
+                data-automation-id="right-sidebar-allstyles"  onClick={(e)=>fn.onClick(e,4)}
                 onMouseEnter={(e)=>fn.onMouseEnter(e)}
                 onMouseLeave={(e)=>fn.onMouseLeave(e)}>
                     <span className="sprite-mid"><i></i></span>
                 </div>
-                <div className={`tab interactions-tab ${data===5?'active':''}`} data-automation-id="right-sidebar-interactions-tab-link"
-                onClick={(e)=>fn.onClick(e,5)}
+                <div className={`tab interactions-tab ${data===5?'active':''}`} data-automation-id="right-sidebar-interactions-tab-link" onClick={(e)=>fn.onClick(e,5)}
                 onMouseEnter={(e)=>fn.onMouseEnter(e)}
                 onMouseLeave={(e)=>fn.onMouseLeave(e)}>
                     <span className="sprite-mid"><i></i></span>

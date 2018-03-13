@@ -14,6 +14,11 @@ class App extends Component{
         }else{
             $('html').addClass('avoid-right-sidebar avoid-left-sidebar avoid-bottom-bar');
         }
+        if(this.props.index.workSpaceDrag){
+            $('body').addClass('wf-resizing wf=canvas-resizing');
+        }else{
+            $('body').removeClass('wf-resizing wf-canvas-resizing');
+        }
         return (
             <div>
                 <WorkSpace/>

@@ -12,7 +12,7 @@ class ToolsA extends Component{
                      <div id="w-rich-text-node-canvas"></div>
                      <div className="resize-hint" style={{transform: 'translate(10px, 10px)'}}><div className="main"><div className="value text">0</div><div className="x text">x</div><div className="value text">0</div></div><div className="note text"></div></div>
                  </div>
-                 {/* 左侧设置的网格 */}
+                 {/* 左侧设置的背景网格,网格有2种模式 */}
                  <Grid ico={ico}/>
             </div>
 

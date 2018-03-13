@@ -34,6 +34,14 @@ const ico_event=(state=stateInit,action)=>{
         //点击眼睛图标
         case 'EYE_TOGGLE' :
         return Object.assign({},state,{
+            leftBtns:{
+                showAdds:0,//添加元素
+                showPages:0,//页面列表
+                showCMS:0,//模板列表
+                showPictures:0,//图标列表
+                showSettings:0,//系统设置
+                showTutor:0,//默认不打开视频知道
+            },
             ...action,
             enter:0,//隐藏提示弹窗
         });

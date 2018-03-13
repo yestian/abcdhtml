@@ -8,7 +8,7 @@ import DesignerLogo from './components/sidebar/designerlogo';
 import LeftBar from './components/sidebar/leftbar/left';
 import RightBar from './components/sidebar/rightbar/right';
 import LeftBarPanel from './components/sidebar/leftbarpanel';
-import BottomBar from './components/sidebar/bottombar';
+import BottomBar from './components/sidebar/bottombar/bottom';
 import ComfirmWrapper from './components/sidebar/comfirmwrapper';
 import Fade from './components/sidebar/fade';
 import NotificationList from './components/sidebar/notificationlist';
@@ -49,7 +49,7 @@ class DesignerReact extends Component {
                         {/* 具体每个元素的解释
                         <AddElementHelper/> */}
                   </div>
-                  <BottomBar icoprops={icoprops}/>
+                  <BottomBar data={this.props.index}/>
                   {/* <No used/> */}
                   <ComfirmWrapper/>
                   <Fade/>
